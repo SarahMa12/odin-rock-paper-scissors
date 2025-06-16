@@ -2,68 +2,23 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
         <title>Odin Rock Paper Scissors</title>
     </head>
 
     <body>
-        <script>
-            let humanScore = 0;
-            let computerScore = 0;
-
-            function getComputerChoice() {
-                let random = Math.floor(Math.random() * 3);
-                let rps = ["rock", "paper", "scissors"];
-                return rps[random];
-            }
-
-            function getHumanChoice() {
-                let input = prompt("Enter rock, paper, or scissors");
-                input = input.toLowerCase();
-                return input;
-            }
-
-            function playRound(humanChoice, computerChoice) {
-                console.log(`Computer chose ${computerChoice}. You chose ${humanChoice}.`);
-                if(humanChoice == computerChoice) {
-                    console.log("Tie");
-                } else if(humanChoice == "rock" && computerChoice == "paper") {
-                    computerScore++;
-                    console.log("Computer gets a point.");
-                } else if(humanChoice == "rock" && computerChoice == "scissors") {
-                    humanScore++;
-                    console.log("You get a point.");
-                } else if(humanChoice == "paper" && computerChoice == "rock") {
-                    humanScore++;
-                    console.log("You get a point.");
-                } else if(humanChoice == "paper" && computerChoice == "scissors") {
-                    computerScore++;
-                    console.log("Computer gets a point.");
-                } else if(humanChoice == "scissors" && computerChoice == "rock") {
-                    computerScore++;
-                    console.log("Computer gets a point.");
-                } else if(humanChoice == "scissors" && computerChoice == "paper") {
-                    humanScore++;
-                    console.log("You get a point.");
-                }
-            }
-
-            function playGame() {
-                for(let i = 0; i < 5; i++) {
-                    playRound(getHumanChoice(), getComputerChoice());
-                }
-
-                console.log(`Final Scores\nYou: ${humanScore}\nComputer: ${computerScore}`);
-
-                if(humanScore > computerScore) {
-                    console.log("You Win!");
-                } else if(computerScore > humanScore) {
-                    console.log("Computer Wins!");
-                } else {
-                    console.log("It's a Tie!");
-                }
-            }
-
-            playGame();
-        </script>
+        <div class="title">Rock, Paper, Scissors</div>
+        <div class="rules">Play rock, paper, scissors. First to 5 wins!</div>
+        <div class="buttons">
+            <button id="rock" class="btn">Rock</button>
+            <button id="paper" class="btn">Paper</button>
+            <button id="scissors" class="btn">Scissors</button>
+        </div>
+        <div class="text">
+            <div class="scores"></div>
+            <div class="results"></div>
+            <div class="winner"></div>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
